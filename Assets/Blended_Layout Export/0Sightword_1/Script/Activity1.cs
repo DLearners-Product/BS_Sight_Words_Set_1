@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Activity1 : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Activity1 : MonoBehaviour
     public int I_count,I_dummy;
     public GameObject G_final, G_Toogle;
     public Text TXT_Max, TXT_Current;
+    public Button backButton;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,8 @@ public class Activity1 : MonoBehaviour
         int i = I_count + 1;
         TXT_Current.text = i.ToString();
         showquestion();
+        backButton.gameObject.SetActive(false);
+      
     }
     public void showquestion()
     {
@@ -54,11 +58,13 @@ public class Activity1 : MonoBehaviour
             showquestion();
             int i = I_count + 1;
             TXT_Current.text = i.ToString();
+            BUT_Enabler();
         }
         else
         {
             G_final.SetActive(true);
         }
+       
     }
     public void BUT_Back()
     {
@@ -68,11 +74,25 @@ public class Activity1 : MonoBehaviour
             showquestion();
             int i = I_count + 1;
             TXT_Current.text = i.ToString();
+            BUT_Enabler();
         }
         else
         {
             G_final.SetActive(true);
         }
+        
 
+    }
+    // Added button enable disable for maintainance tracker 1
+    public void BUT_Enabler()
+    {
+        if(I_count == 0)
+        {
+            backButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            backButton.gameObject.SetActive(true);
+        }
     }
 }

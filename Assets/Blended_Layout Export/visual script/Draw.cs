@@ -109,7 +109,6 @@ public class Draw : MonoBehaviour
        
     }
 
-   
     public void BUT_erase()
     {
         for (int i = 0; i < LA_Clones.Length; i++)
@@ -117,6 +116,7 @@ public class Draw : MonoBehaviour
             if (LA_Clones[i] != null)
             {
                 Destroy(LA_Clones[i].gameObject);
+                break;
             }
         }
     }
